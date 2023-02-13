@@ -11,3 +11,19 @@ services:
     volumes:
       - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+
+  rabbitmq:
+    image: rabbitmq:3.6-management-alpine
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - 15672:15672
+      - 5672:5672
+
+  mongodbServices:
+    image: mongo:latest
+    container_name: mongo-container
+    network_mode: host
+    hostname: localhost
+    ports:
+      - 27017:27017
