@@ -1,4 +1,1 @@
-com/stackroute/registrationservice/service/UserServiceImplTest.class
-com/stackroute/registrationservice/controller/UserControllerTests.class
-com/stackroute/registrationservice/RegistrationServiceApplicationTests.class
-com/stackroute/registrationservice/repository/UserRepositoryTest.class
+com/stackroute/devsecops/DevsecopsApplicationTests.class
