@@ -4,6 +4,13 @@ pipeline{
         maven 'maven 3_9_0'
     }
     stages{
+        stage('Check-Git-Secrets'){
+            steps{
+                sh 'rm trufflehog || true'
+                sh 'docker run gesellix/trufflehog --json https://github.com/osachin964/demo.git > trufflehog'
+                sh 'cat trufflehog'
+            }
+        }
         stage('maven build'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/osachin964/demo.git']])
