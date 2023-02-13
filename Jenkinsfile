@@ -7,7 +7,7 @@ pipeline{
         stage('maven build'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/osachin964/demo.git']])
-                sh 'mvn clean install -DskipTests'
+                sh 'mvn clean package'
             }
         }
         stage('lint'){
