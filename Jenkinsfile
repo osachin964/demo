@@ -4,6 +4,10 @@ pipeline{
         maven 'maven 3_9_0'
     }
     stages{
+         stage('Initialize'){
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+        }
         stage('Check-Git-Secrets'){
             steps{
                 sh 'rm trufflehog || true'
