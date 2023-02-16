@@ -13,9 +13,6 @@ pipeline{
              }
         }
         stage('Check-Git-Secrets'){
-            agent {
-                docker {image 'gesellix/trufflehog'}
-            }
             steps{
                 sh 'rm trufflehog || true'
                 sh 'docker run gesellix/trufflehog https://github.com/osachin964/demo.git > trufflehog'
